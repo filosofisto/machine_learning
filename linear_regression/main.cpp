@@ -33,6 +33,9 @@ int main(int argc, char** argv)
     double value_mean_price = ml.mean(getPrice);
     std::cout << "Mean Price: " << value_mean_price << std::endl;
 
+    auto m = ml.slope(getCarat, getPrice);
+    std::cout << "m         : " << m << std::endl;
+
     return EXIT_SUCCESS;
 }
 
