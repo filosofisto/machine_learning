@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -Wunused-variable -std=c++14 -g
+CXXFLAGS = -Wunused-variable -fpermissive -std=c++17 -g
 SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
 EXEC = app
