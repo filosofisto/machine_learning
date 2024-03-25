@@ -2,6 +2,7 @@
 #define _MACHINE_LEARNING_H
 
 #include <vector>
+#include <numeric>
 
 template<typename T>
 class MachineLearning
@@ -32,11 +33,9 @@ double MachineLearning<T>::mean(Func extractor) const
 {
     if (data.size() == 0) return 0.0;
 
-    double sum = 0.0;
-
-    for (auto& item: data) {
-        sum += extractor(item);
-    }
+    double sum = std::accumulate(data.begin(), data.end(), 0.0, [&](double acc, const T& item) {
+        return acc + extractor(item);
+    });
 
     return sum / data.size();
 }
